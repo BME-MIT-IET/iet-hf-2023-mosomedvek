@@ -1,0 +1,34 @@
+{
+  "Urls": "https://*:443",
+  "Host": "grip.sytes.net",
+  "SMTP": {
+    "Host": "smtp.gmail.com",
+    "Port": 587,
+    "EmailAddress": "<email>@gmail.com",
+    "EmailPassword": "<password>"
+  },
+  "Certificate": {
+    "LoadCertificate": false,
+    "FullChainPath": "/etc/cert/live/grip.sytes.net/fullchain.pem",
+    "KeyPath": "/etc/cert/live/grip.sytes.net/privkey.pem"
+  },
+  "UseSwagger": true,
+  "ConnectionStrings": {
+    "DatabaseConnection": "Server=host.docker.internal;Port=5432;Database=grip;User Id=<username>;Password=<Password>;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "IdentityServer": {
+    "Clients": {
+      "Server": {
+        "Profile": "IdentityServerSPA"
+      }
+    }
+  },
+  "AllowedHosts": "*"
+}
