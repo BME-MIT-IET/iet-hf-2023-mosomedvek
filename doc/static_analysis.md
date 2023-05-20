@@ -14,3 +14,7 @@ törlése.
 ![Alt text](static_analysis/screenshots/remove_role.png)
 
 RemoveRole, AddRoleként viselkedett, cseréltem őket és implementáltam a RemoveRolet.
+
+# Dal
+
+Csak a konstruktorban beállított tagok readonly-vá és priváttá tétele.

@@ -14,7 +14,7 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, int>
     public DbSet<Station> Stations { get; set; } = null!;
     public DbSet<Station> Exempts { get; set; } = null!;
 
-    IConfiguration _configuration;
+    private readonly IConfiguration _configuration;
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
         : base(options)
     {
