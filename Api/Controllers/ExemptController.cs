@@ -18,7 +18,6 @@ namespace Grip.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<Role> _roleManager;
         private readonly IExemptService _exemptService;
 
 
@@ -27,7 +26,6 @@ namespace Grip.Controllers
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
-            _roleManager = roleManager;
             _exemptService = exemptService;
         }
 
@@ -111,14 +109,5 @@ namespace Grip.Controllers
             return NoContent();
         }
 
-        /// <summary>
-        /// Checks if a group exists by its ID.
-        /// </summary>
-        /// <param name="id">The ID of the group to check.</param>
-        /// <returns><c>true</c> if the group exists; otherwise, <c>false</c>.</returns>
-        private bool ExemptExists(int id)
-        {
-            return (_context.Exempt?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
     }
 }
