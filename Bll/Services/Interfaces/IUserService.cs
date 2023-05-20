@@ -50,9 +50,9 @@ namespace Grip.Bll.Services.Interfaces
         /// Adds a role to a user with the specified ID.
         /// </summary>
         /// <param name="userId">The ID of the user.</param>
-        /// <param name="role">The role to add.</param>
+        /// <param name="roleId">The role to add.</param>
         /// <returns>A task representing the asynchronous role addition.</returns>
-        public Task AddRole(int userId, string role);
+        public Task AddRole(int userId, string roleId);
 
         /// <summary>
         /// Removes a role from a user with the specified ID.

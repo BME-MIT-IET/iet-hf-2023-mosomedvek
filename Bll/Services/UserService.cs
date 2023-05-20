@@ -31,9 +31,22 @@ namespace Grip.Bll.Services
             _mapper = mapper;
             _emailService = emailService;
         }
-        public Task AddRole(int userId, string role)
+        public async Task AddRole(int userId, string roleId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+            var role = await _roleManager.FindByNameAsync(roleId.ToString());
+            if (user == null || role == null)
+                throw new NotFoundException("User or role not found.");
+            var result = await _userManager.AddToRoleAsync(user, role.Name);
+            if (result.Succeeded)
+            {
+                _logger.LogInformation($"User {user.Email} assigned to role {roleId} by admin.");
+            }
+            else
+            {
+                _logger.LogInformation($"User {user.Email} role {roleId} not added by admin: {result.Errors.First().Description}");
+                throw new BadRequestException(result.Errors.First().Description);
+            }
         }
 
         public async Task ConfirmEmail(ConfirmEmailDTO confirmEmailDTO)
@@ -164,14 +177,14 @@ namespace Grip.Bll.Services
             var role = await _roleManager.FindByNameAsync(roleId.ToString());
             if (user == null || role == null)
                 throw new NotFoundException("User or role not found.");
-            var result = await _userManager.AddToRoleAsync(user, role.Name);
+            var result = await _userManager.RemoveFromRoleAsync(user,role.Name);
             if (result.Succeeded)
             {
-                _logger.LogInformation($"User {user.Email} assigned to role {roleId} by admin.");
+                _logger.LogInformation($"User {user.Email} removed from role {roleId} by admin.");
             }
             else
             {
-                _logger.LogInformation($"User {user.Email} role {roleId} not added by admin: {result.Errors.First().Description}");
+                _logger.LogInformation($"User {user.Email} role {roleId} not removed by admin: {result.Errors.First().Description}");
                 throw new BadRequestException(result.Errors.First().Description);
             }
         }

@@ -206,7 +206,7 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
-    /// Add role to user
+    /// Remove role to user
     /// </summary>
     /// <param name="userId">User id</param>
     /// <param name="roleId">Role id</param>    
