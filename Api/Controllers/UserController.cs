@@ -59,7 +59,6 @@ public class UserController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<UserDTO>> Get(int id)
     {
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Get user id from token
         var requester = await _userManager.GetUserAsync(User);
         var user = await _userService.Get(id);
         if (requester == null || (requester.Id != id && !await _userManager.IsInRoleAsync(requester, Role.Admin)))
