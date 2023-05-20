@@ -21,7 +21,7 @@ namespace Grip.Controllers
         private readonly IExemptService _exemptService;
 
 
-        public ExemptController(ApplicationDbContext context, IMapper mapper, UserManager<User> userManager, RoleManager<Role> roleManager, IExemptService exemptService)
+        public ExemptController(ApplicationDbContext context, IMapper mapper, UserManager<User> userManager, IExemptService exemptService)
         {
             _context = context;
             _mapper = mapper;
