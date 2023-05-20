@@ -60,7 +60,7 @@ public class AttendanceController : ControllerBase
     {
         if (apiKey != _configuration["ApiKey"])
             return BadRequest("Invalid API Key");
-        var User = await _userManager.FindByIdAsync(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new Exception("User not found")) ?? throw new Exception("User not found");
+        _ = await _userManager.FindByIdAsync(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new Exception("User not found")) ?? throw new Exception("User not found");
 
 
         return Ok();

@@ -74,7 +74,6 @@ public class AttendanceService : IAttendanceService
                 User = user
             };
             _context.Attendances.Add(attendance);
-            var signalRContext =
             await _context.SaveChangesAsync();
         }
         else
