@@ -12,16 +12,14 @@ namespace Grip.Middleware;
 public class DeChunkingMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly ILogger<DeChunkingMiddleware> _logger;
     /// <summary>
     /// Initializes a new instance of the <see cref="DeChunkingMiddleware"/> class.
     /// </summary>
     /// <param name="next">The next middleware delegate.</param>
     /// <param name="logger">The logger.</param>
-    public DeChunkingMiddleware(RequestDelegate next, ILogger<DeChunkingMiddleware> logger)
+    public DeChunkingMiddleware(RequestDelegate next)
     {
         _next = next;
-        _logger = logger;
     }
 
     /// <summary>
