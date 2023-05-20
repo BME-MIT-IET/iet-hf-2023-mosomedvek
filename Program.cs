@@ -1,21 +1,21 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.EntityFrameworkCore;
 using Grip.DAL;
 using Microsoft.AspNetCore.Identity;
 using Grip.DAL.Model;
-using AutoMapper;
 using System.Security.Cryptography.X509Certificates;
 using Grip.Middleware;
 using Grip.Bll.Services;
 using Grip.Bll.Services.Interfaces;
-using Hellang.Middleware.ProblemDetails;
 using Grip.Bll.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Models;
 using Grip.Bll.Providers;
 using Server.Bll.Services;
 using Server.Bll.Providers;
 using Grip.Api.Hubs;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.OpenApi.Models;
+using AutoMapper;
+using Hellang.Middleware.ProblemDetails;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
