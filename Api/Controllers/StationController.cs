@@ -14,17 +14,14 @@ namespace Grip.Controllers;
 [Route("api/[controller]")]
 public class StationController : ControllerBase
 {
-    private readonly ILogger<StationController> _logger;
     private readonly IStationService _stationService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StationController"/> class.
     /// </summary>
-    /// <param name="logger">The logger instance used for logging.</param>
     /// <param name="stationService">The service for managing stations.</param>
-    public StationController(ILogger<StationController> logger, IStationService stationService)
+    public StationController( IStationService stationService)
     {
-        _logger = logger;
         _stationService = stationService;
     }
 

@@ -19,26 +19,18 @@ namespace Grip.Controllers;
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
-    private readonly ILogger<User> _logger;
     private readonly ApplicationDbContext _context;
     private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
-    private readonly RoleManager<Role> _roleManager;
     private readonly IMapper _mapper;
-    private readonly IEmailService _emailService;
     private readonly IUserService _userService;
 
 
 
     public UserController(ILogger<User> logger, ApplicationDbContext context, UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager, IMapper mapper, IEmailService emailService, IUserService userService)
     {
-        _logger = logger;
         _context = context;
         _userManager = userManager;
-        _signInManager = signInManager;
-        _roleManager = roleManager;
         _mapper = mapper;
-        _emailService = emailService;
         _userService = userService;
     }
 
@@ -68,7 +60,6 @@ public class UserController : ControllerBase
     public async Task<ActionResult<UserDTO>> Get(int id)
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Get user id from token
-
         var requester = await _userManager.GetUserAsync(User);
         var user = await _userService.Get(id);
         if (requester == null || (requester.Id != id && !await _userManager.IsInRoleAsync(requester, Role.Admin)))
