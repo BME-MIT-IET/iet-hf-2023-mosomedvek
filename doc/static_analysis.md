@@ -1,0 +1,1 @@
+Nem használt függvények mezők törlése, ifek mergelése, elnevezeséi konvenciókhoz való iagzodás. Mind a kód olvashatósága és karbantarthatósága érdekében.

@@ -39,8 +39,8 @@ public class StationController : ControllerBase
     /// Returns 400 Bad Request if the station number is invalid.
     /// Returns 401 Unauthorized if the API key is not valid.
     /// </remarks>
-    [NotChunked]
-    [ValidateApiKey]
+    [NotChunkedAttribute]
+    [ValidateApiKeyAttribute]
     [HttpGet("{StationNumber}/SecretKey")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

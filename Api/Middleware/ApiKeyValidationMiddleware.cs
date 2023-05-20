@@ -39,7 +39,7 @@ public class ApiKeyValidationMiddleware
         try
         {
             var endpoint = context.Features.Get<IEndpointFeature>()?.Endpoint;
-            var attribute = endpoint?.Metadata.GetMetadata<ValidateApiKey>();
+            var attribute = endpoint?.Metadata.GetMetadata<ValidateApiKeyAttribute>();
             if (attribute != null && context.Request.Headers["ApiKey"] != _configuration["Station:ApiKey"])
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;

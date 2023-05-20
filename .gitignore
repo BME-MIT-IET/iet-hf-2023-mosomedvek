@@ -236,3 +236,4 @@ _Pvt_Extensions
 appsettings.json
 appsettings.TestEnvironment.json
 Server.sln
+doc/static_analysis.md

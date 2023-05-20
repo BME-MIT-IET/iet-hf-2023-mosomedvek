@@ -30,7 +30,7 @@ public class DeChunkingMiddleware
     public async Task InvokeAsync(HttpContext context)
     {
         var endpoint = context.Features.Get<IEndpointFeature>()?.Endpoint;
-        var attribute = endpoint?.Metadata.GetMetadata<NotChunked>();
+        var attribute = endpoint?.Metadata.GetMetadata<NotChunkedAttribute>();
         if (attribute != null)
         {
             var originalBodyStream = context.Response.Body;
