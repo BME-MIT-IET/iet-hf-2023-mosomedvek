@@ -26,8 +26,6 @@ namespace Grip.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="PassiveTagController"/> class.
         /// </summary>
-        /// <param name="context">The application database context.</param>
-        /// <param name="mapper">The mapper for DTO mapping.</param>
         /// <param name="passiveTagService">The service for managing passive tags.</param>
         public PassiveTagController( IPassiveTagService passiveTagService)
         {

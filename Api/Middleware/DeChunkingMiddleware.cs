@@ -16,7 +16,6 @@ public class DeChunkingMiddleware
     /// Initializes a new instance of the <see cref="DeChunkingMiddleware"/> class.
     /// </summary>
     /// <param name="next">The next middleware delegate.</param>
-    /// <param name="logger">The logger.</param>
     public DeChunkingMiddleware(RequestDelegate next)
     {
         _next = next;

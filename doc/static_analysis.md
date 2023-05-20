@@ -8,4 +8,4 @@ Ebben az esetben hibásan jelzi a PascalCase megsértését.
 
 # Bll
 
-Nem használt lokális változók törlése, csak a konstruktorban beállított tagok readonly-vá és priváttá tétele.
+Nem használt lokális változók törlése, csak a konstruktorban beállított tagok readonly-vá és priváttá tétele. Paraméterek átnevezése, hogy egyezzen az interfész által deklarálttal. Kikommentezett kódok törlése.

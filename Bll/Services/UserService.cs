@@ -74,7 +74,7 @@ namespace Grip.Bll.Services
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(createdUser);
 
                 _logger.LogInformation($"New user {user.Name} ({user.Email}) created by admin with activation token: {token}");
-                await _emailService.SendEmailAsync(user.Email, "Confirm your email", $"Your authentication token is: {token}"); //$"Please confirm your email by clicking this link: {Request.Scheme}://{Request.Host}/api/User/ConfirmEmail?token={token}&email={user.Email}");
+                await _emailService.SendEmailAsync(user.Email, "Confirm your email", $"Your authentication token is: {token}");
 
                 return _mapper.Map<UserDTO>(await _userManager.FindByEmailAsync(user.Email));
             }

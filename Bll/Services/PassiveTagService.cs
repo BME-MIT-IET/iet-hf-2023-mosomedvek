@@ -21,19 +21,16 @@ namespace Grip.Bll.Services
 
         private readonly IMapper _mapper;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<User> _userManager;
 
         /// <summary>
         /// Initializes a new instance of the PassiveTagService class.
         /// </summary>
         /// <param name="mapper">The AutoMapper object for object mapping.</param>
         /// <param name="context">The ApplicationDbContext object for accessing the database context.</param>
-        /// <param name="userManager">The UserManager object for user management.</param>
-        public PassiveTagService(IMapper mapper, ApplicationDbContext context, UserManager<User> userManager)
+        public PassiveTagService(IMapper mapper, ApplicationDbContext context)
         {
             _mapper = mapper;
             _context = context;
-            _userManager = userManager;
         }
 
         /// <summary>

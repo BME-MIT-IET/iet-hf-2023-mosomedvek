@@ -14,9 +14,9 @@ namespace Grip.Bll.Services.Interfaces
         /// <summary>
         /// Logs in a user with the specified login credentials.
         /// </summary>
-        /// <param name="dto">The login credentials.</param>
+        /// <param name="login">The login credentials.</param>
         /// <returns>A task representing the asynchronous login operation.</returns>
-        public Task<LoginResultDTO> Login(LoginUserDTO dto);
+        public Task<LoginResultDTO> Login(LoginUserDTO login);
 
         /// <summary>
         /// Deletes a user with the specified ID.
@@ -28,16 +28,16 @@ namespace Grip.Bll.Services.Interfaces
         /// <summary>
         /// Confirms the email of a user with the specified data.
         /// </summary>
-        /// <param name="dto">The data for confirming the email.</param>
+        /// <param name="confirmEmailDTO">The data for confirming the email.</param>
         /// <returns>A task representing the asynchronous email confirmation.</returns>
-        public Task ConfirmEmail(ConfirmEmailDTO dto);
+        public Task ConfirmEmail(ConfirmEmailDTO confirmEmailDTO);
 
         /// <summary>
         /// Sends a forgot password email to a user with the specified data.
         /// </summary>
-        /// <param name="dto">The data for sending the forgot password email.</param>
+        /// <param name="forgotPassword">The data for sending the forgot password email.</param>
         /// <returns>A task representing the asynchronous sending of the forgot password email.</returns>
-        public Task ForgotPassword(ForgotPasswordDTO dto);
+        public Task ForgotPassword(ForgotPasswordDTO forgotPassword);
 
         /// <summary>
         /// Resets the password of a user with the specified data.
@@ -58,9 +58,9 @@ namespace Grip.Bll.Services.Interfaces
         /// Removes a role from a user with the specified ID.
         /// </summary>
         /// <param name="userId">The ID of the user.</param>
-        /// <param name="role">The role to remove.</param>
+        /// <param name="roleId">The role to remove.</param>
         /// <returns>A task representing the asynchronous role removal.</returns>
-        public Task RemoveRole(int userId, string role);
+        public Task RemoveRole(int userId, string roleId);
 
     }
 }

@@ -11,19 +11,16 @@ namespace Grip.Bll.Services
     /// </summary>
     public class StationService : IStationService
     {
-        private readonly ILogger<StationService> _logger;
         private readonly IConfiguration _configuration;
         private readonly ApplicationDbContext _context;
 
         /// <summary>
         /// Initializes a new instance of the StationService class with specified dependencies.
         /// </summary>
-        /// <param name="logger">Logger object for logging errors and warnings.</param>
         /// <param name="configuration">Configuration object for accessing app settings.</param>
         /// <param name="context">Database context object for accessing station data.</param>
-        public StationService(ILogger<StationService> logger, IConfiguration configuration, ApplicationDbContext context)
+        public StationService( IConfiguration configuration, ApplicationDbContext context)
         {
-            _logger = logger;
             _configuration = configuration;
             _context = context;
         }
