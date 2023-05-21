@@ -7,12 +7,12 @@ namespace Grip.DAL;
 
 public class ApplicationDbContext : IdentityDbContext<User, Role, int>
 {
-    public DbSet<PassiveTag> PassiveTags { get; set; } = null!;
-    public DbSet<Attendance> Attendances { get; set; } = null!;
-    public DbSet<Group> Groups { get; set; } = null!;
-    public DbSet<Class> Classes { get; set; } = null!;
-    public DbSet<Station> Stations { get; set; } = null!;
-    public DbSet<Station> Exempts { get; set; } = null!;
+    public virtual DbSet<PassiveTag> PassiveTags { get; set; } = null!;
+    public virtual DbSet<Attendance> Attendances { get; set; } = null!;
+    public virtual DbSet<Group> Groups { get; set; } = null!;
+    public virtual DbSet<Class> Classes { get; set; } = null!;
+    public virtual DbSet<Station> Stations { get; set; } = null!;
+    public virtual DbSet<Exempt> Exempts { get; set; } = null!;
 
     private readonly IConfiguration _configuration;
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
@@ -21,12 +21,19 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, int>
         _configuration = configuration;
     }
 
+    public ApplicationDbContext()
+    {
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         base.OnConfiguring(optionsBuilder);
-        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DatabaseConnection"));
-        //TODO remove
-        optionsBuilder.EnableSensitiveDataLogging();
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DatabaseConnection"));
+            //TODO remove
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -42,5 +49,5 @@ public class ApplicationDbContext : IdentityDbContext<User, Role, int>
         builder.Entity<Class>().HasOne(c => c.Station).WithMany(s => s.Classes);
     }
 
-    public DbSet<Grip.DAL.Model.Exempt> Exempt { get; set; } = default!;
+    public virtual DbSet<Grip.DAL.Model.Exempt> Exempt { get; set; } = default!;
 }
