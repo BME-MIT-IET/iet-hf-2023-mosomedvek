@@ -1,0 +1,3 @@
+# Grip
+## Projekt leírása
+A prjekt egy középiskolai jelenléti rendszer szerver oldali részét hivatott megvalósítani. A diákok akárhányszor áthaladnak az iskola egyik bejáratán, vagy bemennek egy terembe egy kihelyezett eszközköz érintik a telefonkukat (vagy okostelefon hiányában egy passzív NFC tag-et), így azonosítják magukat, majd ezt az azonosítás az eszköz vagy a telefon elküldi a szervernek, ami számon tartja, ki mikor érkezett az iskolába/órára, így levéve a tanárokról a jelenlétvezetés terhét. A szervernek lehetővé kell tenni a felhasználókezelést, az azonosítások számontartását, illetve a jelenlétek lekérdezhetőségét.
