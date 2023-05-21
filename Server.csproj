@@ -35,7 +35,7 @@
     <PackageReference Include="swashbuckle.aspnetcore" Version="6.5.0" />
     <PackageReference Include="npgsql.entityframeworkcore.postgresql" Version="7.0.3" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="hellang.middleware.problemdetails" Version="6.5.1" />
+<PackageReference Include="hellang.middleware.problemdetails" Version="6.5.1" />
     <PackageReference Include="Moq" Version="4.18.4" />
     <PackageReference Include="Moq.EntityFrameworkCore" Version="7.0.0.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
@@ -52,6 +52,12 @@
     <Content Remove="$(SpaRoot)**" />
     <None Remove="$(SpaRoot)**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+ </ItemGroup>
+  <ItemGroup>
+    <Content Remove="appsettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="appsettings.json" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <Exec Command="node --version" ContinueOnError="true">

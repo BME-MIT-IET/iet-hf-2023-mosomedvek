@@ -7,8 +7,8 @@ namespace Grip.Bll.Services;
 /// </summary>
 public class EmailService : IEmailService
 {
-    IConfiguration _configuration;
-    ILogger _logger;
+    private readonly IConfiguration _configuration;
+    private readonly ILogger _logger;
 
     /// <summary>
     /// Initializes a new instance of the EmailService class.

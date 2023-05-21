@@ -14,19 +14,15 @@ namespace Grip.Controllers;
 [Route("api/[controller]")]
 public class AttendanceController : ControllerBase
 {
-    private readonly ILogger<AttendanceController> _logger;
     private readonly UserManager<DAL.Model.User> _userManager;
     private readonly IConfiguration _configuration;
-    private readonly ApplicationDbContext _context;
     private readonly IAttendanceService _attendanceService;
 
     public AttendanceController(ILogger<AttendanceController> logger, UserManager<DAL.Model.User> userManager, IConfiguration configuration, ApplicationDbContext context, IAttendanceService attendanceService)
     {
-        _logger = logger;
         _userManager = userManager;
         _configuration = configuration;
         _attendanceService = attendanceService;
-        _context = context;
     }
 
     /// <summary>
@@ -64,7 +60,7 @@ public class AttendanceController : ControllerBase
     {
         if (apiKey != _configuration["ApiKey"])
             return BadRequest("Invalid API Key");
-        var User = await _userManager.FindByIdAsync(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new Exception("User not found")) ?? throw new Exception("User not found");
+        _ = await _userManager.FindByIdAsync(HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier) ?? throw new Exception("User not found")) ?? throw new Exception("User not found");
 
 
         return Ok();

@@ -21,20 +21,14 @@ namespace Grip.Controllers
     [ApiController]
     public class PassiveTagController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
         private readonly IPassiveTagService _passiveTagService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PassiveTagController"/> class.
         /// </summary>
-        /// <param name="context">The application database context.</param>
-        /// <param name="mapper">The mapper for DTO mapping.</param>
         /// <param name="passiveTagService">The service for managing passive tags.</param>
-        public PassiveTagController(ApplicationDbContext context, IMapper mapper, IPassiveTagService passiveTagService)
+        public PassiveTagController( IPassiveTagService passiveTagService)
         {
-            _context = context;
-            _mapper = mapper;
             _passiveTagService = passiveTagService;
         }
 
@@ -153,11 +147,6 @@ namespace Grip.Controllers
             await _passiveTagService.Delete(id);
 
             return NoContent();
-        }
-
-        private bool PassiveTagExists(int id)
-        {
-            return (_context.PassiveTags?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

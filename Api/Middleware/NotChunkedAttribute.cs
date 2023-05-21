@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 namespace Grip.Middleware;
 
 /// <summary>
-/// Attribute for marking a controller method as requiring a valid API key.
+/// Attribute for marking a controller method write response in a not chunked manner.
 /// </summary>
-public class ValidateApiKey : Attribute
+public class NotChunkedAttribute : Attribute
 {
 
 }

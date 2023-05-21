@@ -19,14 +19,12 @@ namespace Grip.Controllers
     [ApiController]
     public class ClassController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly IClassService _classService;
 
         public ClassController(ApplicationDbContext context, UserManager<User> userManager, IMapper mapper, IClassService classService)
         {
-            _context = context;
             _userManager = userManager;
             _mapper = mapper;
             _classService = classService;
@@ -130,10 +128,6 @@ namespace Grip.Controllers
         {
             var user = await _userManager.GetUserAsync(User) ?? throw new Exception("User logged in, but not found");
             return Ok(await _classService.GetClassesForUserOnDay(user, date));
-        }
-        private bool ClassExists(int id)
-        {
-            return (_context.Classes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

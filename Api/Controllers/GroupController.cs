@@ -18,23 +18,14 @@ namespace Grip.Controllers;
 [ApiController]
 public class GroupController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
-    private readonly UserManager<User> _userManager;
-    private readonly IMapper _mapper;
     private readonly IGroupService _groupService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GroupController"/> class.
     /// </summary>
-    /// <param name="context">The application database context.</param>
-    /// <param name="userManager">The user manager.</param>
-    /// <param name="mapper">The mapper.</param>
     /// <param name="groupService">The group service.</param>
-    public GroupController(ApplicationDbContext context, UserManager<User> userManager, IMapper mapper, IGroupService groupService)
+    public GroupController( IGroupService groupService)
     {
-        _context = context;
-        _userManager = userManager;
-        _mapper = mapper;
         _groupService = groupService;
     }
 
@@ -213,8 +204,4 @@ public class GroupController : ControllerBase
         return Ok();
     }
 
-    private bool GroupExists(int id)
-    {
-        return (_context.Groups?.Any(e => e.Id == id)).GetValueOrDefault();
-    }
 }

@@ -14,24 +14,21 @@ namespace Grip.Controllers;
 [Route("api/[controller]")]
 public class StationController : ControllerBase
 {
-    private readonly ILogger<StationController> _logger;
     private readonly IStationService _stationService;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="StationController"/> class.
     /// </summary>
-    /// <param name="logger">The logger instance used for logging.</param>
     /// <param name="stationService">The service for managing stations.</param>
-    public StationController(ILogger<StationController> logger, IStationService stationService)
+    public StationController( IStationService stationService)
     {
-        _logger = logger;
         _stationService = stationService;
     }
 
     /// <summary>
     /// Gets the secret key for a specific station.
     /// </summary>
-    /// <param name="stationNumber">The number of the station.</param>
+    /// <param name="StationNumber">The number of the station.</param>
     /// <returns>An <see cref="ActionResult{T}"/> representing the result of the operation.</returns>
     /// <remarks>
     /// This function is accessible via HTTP GET request.
@@ -42,8 +39,8 @@ public class StationController : ControllerBase
     /// Returns 400 Bad Request if the station number is invalid.
     /// Returns 401 Unauthorized if the API key is not valid.
     /// </remarks>
-    [NotChunked]
-    [ValidateApiKey]
+    [NotChunkedAttribute]
+    [ValidateApiKeyAttribute]
     [HttpGet("{StationNumber}/SecretKey")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
