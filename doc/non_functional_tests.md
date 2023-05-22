@@ -28,3 +28,6 @@ Az elvárások, hogy a kérések kevesebb mint 0.5%-a lehet sikertelen, valamint
 ## Biztonság
 Az alkalmazás biztonsági szempontból való vizsgálata során azt találtam, hogy az api például egy helytelen adatokkal való belépés esetében a válasz body részében visszaadja a stack trace-t, forráskód sorok is láthatók. Az ilyen részletességű hibaleírás bekerülhet a logfájlba, de a felhasználónak ne kerüljön elküldésre, mivel részleteket fed fel az implementációról, a használt technológiáról, ezáltal a lehetséges sebezhetőségekről.
 ![](non_functional_tests/security.png)
+
+## Használhatóság
+Mivel a vizsgált projektnek felhasználói felülete nincs, a meglévő api-t a Swagger által biztosított webes felületen keresztül vizsgáltam használhatóság szempontjából. Az elnevezéseknek köszönhetően az elvárt input paraméterek érhetőek, a használat egyértelmű. Egyedül talán a POST /api/Attendance végpont által a body-ban elvárt objektum message kulcsa az, ami nem igazán önleíró.
