@@ -24,3 +24,7 @@ Követelményként megadásra került, hogy a kérések kevesebb mint 1%-a lehet
 Megemelkedett terhelés közepesen hosszú ideig.\
 Az elvárások, hogy a kérések kevesebb mint 0.5%-a lehet sikertelen, valamint a 95%-a 1.5 másodperc alatt kell teljesüljön mind megvalósult.
 ![](non_functional_tests/stress.png)
+
+## Biztonság
+Az alkalmazás biztonsági szempontból való vizsgálata során azt találtam, hogy az api például egy helytelen adatokkal való belépés esetében a válasz body részében visszaadja a stack trace-t, forráskód sorok is láthatók. Az ilyen részletességű hibaleírás bekerülhet a logfájlba, de a felhasználónak ne kerüljön elküldésre, mivel részleteket fed fel az implementációról, a használt technológiáról, ezáltal a lehetséges sebezhetőségekről.
+![](non_functional_tests/security.png)
