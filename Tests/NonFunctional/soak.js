@@ -18,7 +18,7 @@ export const options = Object.assign(commonOptions, {
 export default function () {
   auth();
 
-  const res = http.post(
+  http.post(
     `${baseUrl}/api/Attendance/passive`,
     JSON.stringify({
       stationId: 1,
