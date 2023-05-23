@@ -23,7 +23,7 @@ namespace Tests.Grip.Api.Controllers
         {
             _loggerMock = new Mock<ILogger<StationController>>();
             _stationServiceMock = new Mock<IStationService>();
-            _stationController = new StationController(_loggerMock.Object, _stationServiceMock.Object);
+            _stationController = new StationController(_stationServiceMock.Object);
         }
 
         [Test]
