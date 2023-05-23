@@ -86,7 +86,7 @@ Create, Add user, Get , Update, Delete
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
 | 12.  |  Use POST /api/Group<br>{<br>"id": 100,<br>"name": "testGroup"<br>}|  201 <br> Class id and name in JSON format| 201 <br> Class id and name in JSON format| Pass  |
-| 13.  |  Use PATCH /api/Group/100/AddUser/{userId}|  200 | 500 <br> „detail” : ”Object reference not set to an instance of an object.”| Pass  |
+| 13.  |  Use PATCH /api/Group/100/AddUser/{userId}|  200 | 200 | Pass  |
 | 14.  |  Use GET /api/Group/100 |  200 <br> Class id and name in JSON format| 200 <br> Class id and name in JSON format| Pass  |
 | 15.  |  Use PUT /api/Group/100<br>{<br>"id": 100,<br>"name": "groupTest"<br>}|  204| 204 | Pass   |
 | 16.  |  Use DELETE /api/Group/100|  204| 204 | Pass  |
