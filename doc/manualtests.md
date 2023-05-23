@@ -35,9 +35,9 @@ Válasznak 200-as kódot várunk a felhasználó adataival.
 
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
-| 1.  |  Try out GET /api/User |  200 <br> Users in the database in JSON format |  200 <br> Users in the database in JSON format |  Pass |
-| 1.  |  Try out GET /api/Class |  200 <br> Classes in the database in JSON format |  200 <br> Classes in the database in JSON format |  Pass |
-| 1.  |  Try out GET /api/User/1 |  200 <br> Classes in the database in JSON format |  200 <br> Classes in the database in JSON format |  Pass |
+| 4.  |  Try out GET /api/User |  200 <br> Users in the database in JSON format |  200 <br> Users in the database in JSON format |  Pass |
+| 5.  |  Try out GET /api/Class |  200 <br> Classes in the database in JSON format |  200 <br> Classes in the database in JSON format |  Pass |
+| 6.  |  Try out GET /api/User/1 |  200 <br> Classes in the database in JSON format |  200 <br> Classes in the database in JSON format |  Pass |
 
 ## 3. Registration and Delete User tests
 
@@ -70,14 +70,14 @@ Not yet implemented.
 
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
-| 1.  |  USe POST /api/User/AddRole/{userId}/{roleId} |  200| |   |
+| 9.  |  USe POST /api/User/AddRole/{userId}/{roleId} |  200| |   |
 
 ## 5. Get student and Search
 
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
-| 1.  |  Use GET /api/Student/{userId} |  200 <br> Student id, email,username, absences in JSON format| 200 <br> Student id, email,username, absences in JSON format| Pass  |
-| 1.  |  Use GET /api/Student/Search <br>Parameters: name: test |  200 <br> Student id and username in JSON format| 200 <br> Student id and username in JSON format| Pass  |
+| 10.  |  Use GET /api/Student/{userId} |  200 <br> Student id, email,username, absences in JSON format| 200 <br> Student id, email,username, absences in JSON format| Pass  |
+| 11.  |  Use GET /api/Student/Search <br>Parameters: name: test |  200 <br> Student id and username in JSON format| 200 <br> Student id and username in JSON format| Pass  |
 
 ## 6. Group tests
 
@@ -85,11 +85,11 @@ Create, Add user, Get , Update, Delete
 
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
-| 1.  |  Use POST /api/Group<br>{<br>"id": 100,<br>"name": "testGroup"<br>}|  201 <br> Class id and name in JSON format| 201 <br> Class id and name in JSON format| Pass  |
-| 1.  |  Use PATCH /api/Group/100/AddUser/{userId}|  200 | 500 <br> „detail” : ”Object reference not set to an instance of an object.”| Pass  |
-| 1.  |  Use GET /api/Group/100 |  200 <br> Class id and name in JSON format| 200 <br> Class id and name in JSON format| Pass  |
-| 1.  |  Use PUT /api/Group/100<br>{<br>"id": 100,<br>"name": "groupTest"<br>}|  204| 204 | Pass with Redundant input field  |
-| 1.  |  Use DELETE /api/Group/100|  204| 204 | Pass  |
+| 12.  |  Use POST /api/Group<br>{<br>"id": 100,<br>"name": "testGroup"<br>}|  201 <br> Class id and name in JSON format| 201 <br> Class id and name in JSON format| Pass  |
+| 13.  |  Use PATCH /api/Group/100/AddUser/{userId}|  200 | 500 <br> „detail” : ”Object reference not set to an instance of an object.”| Pass  |
+| 14.  |  Use GET /api/Group/100 |  200 <br> Class id and name in JSON format| 200 <br> Class id and name in JSON format| Pass  |
+| 15.  |  Use PUT /api/Group/100<br>{<br>"id": 100,<br>"name": "groupTest"<br>}|  204| 204 | Pass   |
+| 16.  |  Use DELETE /api/Group/100|  204| 204 | Pass  |
 
 ## 7. Create Passive Tag, Attend with it then delete
 
@@ -97,6 +97,6 @@ A teszthez szükséges készíteni egy Station. Ez az adatbáziskezelőben tudju
 
 | Test Case ID  |  Test Steps |  Expected Results  |  Actual Results | Status |
 |---|---|---|---|---|
-| 1.  |  Use POST /api/PassiveTag<br>{<br>"serialNumber": 1234,<br>"userId": 1<br>}|  201 <br> The tag id, serialNumber and user data in JSON format| 201 <br> The tag id, serialNumber and user data in JSON format| Pass  |
-| 1.  |  Use POST /api/Attendance/passive <br> Parameter:<br> <{apiKey}><br>Body:<br>{<br>"stationId": 1,<br>"serialNumber": 1234<br>}|  200| 200| Pass  |
-| 1.  |  Use DELETE /api/PassiveTag/1234|  204| 204| Pass  |
+| 17.  |  Use POST /api/PassiveTag<br>{<br>"serialNumber": 1234,<br>"userId": 1<br>}|  201 <br> The tag id, serialNumber and user data in JSON format| 201 <br> The tag id, serialNumber and user data in JSON format| Pass  |
+| 18.  |  Use POST /api/Attendance/passive <br> Parameter:<br> <{apiKey}><br>Body:<br>{<br>"stationId": 1,<br>"serialNumber": 1234<br>}|  200| 200| Pass  |
+| 19.  |  Use DELETE /api/PassiveTag/1234|  204| 204| Pass  |
