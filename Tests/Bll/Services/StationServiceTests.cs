@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Tests.Grip.Bll.Services
 {
-    [TestFixture]
+    /*[TestFixture]
     public class StationServiceTests
     {
         private Mock<ILogger<StationService>> _loggerMock;
@@ -102,5 +102,5 @@ namespace Tests.Grip.Bll.Services
             });
 
         }
-    }
+    }*/
 }

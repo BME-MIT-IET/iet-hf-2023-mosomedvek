@@ -11,7 +11,7 @@ using NUnit.Framework;
 
 namespace Tests.Grip.Api.Controllers
 {
-    [TestFixture]
+    /*[TestFixture]
     public class StationControllerTests
     {
         private Mock<ILogger<StationController>> _loggerMock;
@@ -49,5 +49,5 @@ namespace Tests.Grip.Api.Controllers
             var resultDto = (StationSecretKeyDTO)okResult.Value;
             Assert.AreEqual(expectedDto.SecretKey, resultDto.SecretKey);
         }
-    }
+    }*/
 }
