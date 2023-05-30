@@ -25,7 +25,7 @@ RemoveRole, AddRoleként viselkedett, cseréltem őket és implementáltam a Rem
 
 # Dal
 
-Csak a konstruktorban beállított tagok readonly-vá és priváttá tétele. Más hibát manuális átvizsgálással és solarlint segítségével ne mtaláltam.
+Csak a konstruktorban beállított tagok readonly-vá és priváttá tétele. Más hibát manuális átvizsgálással és solarlint segítségével nem találtam.
 
 
 # Összegzés
